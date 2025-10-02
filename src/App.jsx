@@ -37,8 +37,8 @@ const userData = {
     {
       id: 'qrscanner',
       name: 'QR Scanner — Utility App',
-      images: ['/assets/project-qr1.jpeg','/assets/project-qr2.jpeg','/assets/project-qr3.jpeg','/assets/project-4.jpeg','/assets/project-qr5.jpeg'],
-      short: 'Scan, generate and batch-process QR codes; export results to XLSX for reporting.',
+      images: ['/assets/project-qr1.jpeg','/assets/project-qr2.jpeg','/assets/project-qr3.jpeg','/assets/project-qr4.jpeg','/assets/project-qr5.jpeg'],
+      short: 'Scan, generate and batch-process QR codes; decorate and generate QR website.',
       long: 'Implemented requirements and testing strategy to ensure reliable scanning across devices and export workflows used by small merchants.'
     },
     {
