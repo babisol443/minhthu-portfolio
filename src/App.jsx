@@ -30,21 +30,21 @@ const userData = {
     {
       id: 'decision',
       name: 'Decision — Lifestyle App',
-      images: ['/assets/project-decision1.jpeg','/assets/project-decision2.jpeg','/assets/project-decision3.jpg'],
+      images: ['/assets/project-decision1.jpeg','/assets/project-decision2.jpeg','/assets/project-decision3.jpg','/assets/project-decision4.jpeg','/assets/project-decision5.jpeg','/assets/project-decision6.jpeg','/assets/project-decision7.jpeg','/assets/project-decision8.jpeg'],
       short: 'A compact toolkit for quick decision-making: spin the wheel, flip a coin, roll dice, or generate lucky numbers.',
       long: 'I led product definition and prototyping. Focused on low-friction UX for rapid adoption; the app reached consistent daily usage after launch.'
     },
     {
       id: 'qrscanner',
       name: 'QR Scanner — Utility App',
-      images: ['/assets/project-qr1.jpeg','/assets/project-qr2.jpeg','/assets/project-qr3.jpeg'],
+      images: ['/assets/project-qr1.jpeg','/assets/project-qr2.jpeg','/assets/project-qr3.jpeg','/assets/project-4.jpeg','/assets/project-qr5.jpeg'],
       short: 'Scan, generate and batch-process QR codes; export results to XLSX for reporting.',
       long: 'Implemented requirements and testing strategy to ensure reliable scanning across devices and export workflows used by small merchants.'
     },
     {
       id: 'debt',
       name: 'Debt Manager — Finance App',
-      images: ['/assets/project-debt1.jpeg','/assets/project-debt2.jpeg','/assets/project-debt3.jpeg'],
+      images: ['/assets/project-debt1.jpeg','/assets/project-debt2.jpeg','/assets/project-debt3.jpeg','/assets/project-debt4.jpeg','/assets/project-debt5.jpeg'],
       short: 'Personal finance tool to track loans, repayments, and interest.',
       long: 'Built the calculation models, designed clear repayment dashboards, and validated accuracy through test cases and stakeholder UAT.'
     }
@@ -186,18 +186,28 @@ function Experience(){
   )
 }
 
+import React, { useState, useEffect } from 'react'
+
 function ProjectSlider({project}){
   const [i,setI] = useState(0)
   const total = project.images.length
+
   function prev(){ setI((i-1+total)%total) }
   function next(){ setI((i+1)%total) }
+
+  // Auto-play mỗi 3 giây
+  useEffect(()=>{
+    const timer = setInterval(()=> setI(i => (i+1)%total), 3000)
+    return ()=> clearInterval(timer)
+  },[total])
+
   return (
     <div className="bg-white rounded-xl shadow p-4 flex flex-col">
       <div className="relative h-52 bg-slate-100 rounded overflow-hidden flex items-center justify-center">
-        <img src={project.images[i]} alt={project.name} className="object-contain max-h-full w-full p-2" onError={(e)=>e.currentTarget.src='/assets/project-placeholder.jpg'} />
+        <img src={project.images[i]} alt={project.name} className="object-contain max-h-full w-full p-2" />
         {total>1 && <>
-          <button onClick={prev} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 rounded-md">‹</button>
-          <button onClick={next} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 px-3 py-1 rounded-md">›</button>
+          <button onClick={prev} className="absolute left-2 top-1/2 ...">‹</button>
+          <button onClick={next} className="absolute right-2 top-1/2 ...">›</button>
         </>}
       </div>
       <h4 className="mt-3 font-semibold">{project.name}</h4>
