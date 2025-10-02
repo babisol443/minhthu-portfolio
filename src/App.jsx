@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 const userData = {
   name: 'Nguyen Do Minh Thu',
@@ -186,7 +186,6 @@ function Experience(){
   )
 }
 
-import React, { useState, useEffect } from 'react'
 
 function ProjectSlider({project}){
   const [i,setI] = useState(0)
