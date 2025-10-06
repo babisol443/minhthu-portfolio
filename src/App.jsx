@@ -17,7 +17,7 @@ const userData = {
   experience: {
     company: 'Shenzhen Horizon Vision Technology',
     role: 'Business Analyst & Manual Tester Intern',
-    period: 'Apr 2024 — Sep 2024',
+    period: 'Apr 2025 — Sep 2025',
     bullets: [
       'Led requirement elicitation with stakeholders, turning business problems into clear SRS and user stories.',
       'Designed activity diagrams, user flows, wireframes and interactive prototypes to align cross-functional teams.',
